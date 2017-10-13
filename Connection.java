@@ -5,7 +5,12 @@
 public class Connection
 {
 
-private EnumState.ConnectionState CS;
+public enum ConnectionState 
+{
+ WIFI,MobileNetwork,NoConnection 
+}
+
+private ConnectionState CS;
 
 private static Connection connection=new Connection();
 
@@ -16,10 +21,10 @@ private static Connection connection=new Connection();
 
 }
 
-public Connection( EnumState.ConnectionState C)
-{
-this.CS=C;
-}
+//public Connection( EnumState.ConnectionState C)
+//{
+//this.CS=C;
+//}
  public void  getState()
 {
 switch(CS)
@@ -61,13 +66,5 @@ object.getState();
 }
 }
 
-
- class EnumState
-{
-public enum ConnectionState 
-{
- WIFI,MobileNetwork,NoConnection 
-}
-}
 
 
