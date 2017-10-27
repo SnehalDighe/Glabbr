@@ -1,19 +1,14 @@
 
 
 //Singletone with Enum
-
 public class Connection
 {
-
+private static Connection connection=new Connection();
 public enum ConnectionState 
 {
- WIFI,MobileNetwork,NoConnection 
+ WIFI,MobileNetwork,NoConnection;
+
 }
-
-private ConnectionState CS;
-
-private static Connection connection=new Connection();
-
 
 //Private ctor
   private Connection( )
@@ -21,13 +16,10 @@ private static Connection connection=new Connection();
 
 }
 
-//public Connection( EnumState.ConnectionState C)
-//{
-//this.CS=C;
-//}
- public void  getState()
+
+ public void  getState(ConnectionState cs)
 {
-switch(CS)
+switch(cs)
 {
                case WIFI:
                 System.out.println("Connected to WIFI.");
@@ -38,7 +30,7 @@ switch(CS)
                 break;
                           
             case NoConnection: 
-                System.out.println("Connected to NoConnection");
+                System.out.println("Connected to No Internet Connection");
                 break;
  default:
                 System.out.println("No State available.");
@@ -48,19 +40,12 @@ switch(CS)
 //get only object 
 public static Connection getInstance()
 {
-
 return connection;
 }
 
-
-
-
- public static void main(String []args)
+public static void main(String []args)
 {
-
-Connection object=Connection.getInstance();
-
-object.getState();
+ connection.getState(ConnectionState.WIFI);
 
 
 }
